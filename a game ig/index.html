@@ -1,0 +1,34 @@
+
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <a-scene renderer="alpha: true" vr-mode-ui="enabled: true" device-orientation-permission-ui="enabled: true">
+      <a-light type="ambient" color="#ffffff" intensity="1.5"></a-light>
+      <a-entity
+        geometry="primitive: sphere; radius: 360; theta-start: 0; theta-length: 90"
+        material="src: images/morning sky.jpeg; side: back; shader: flat; fog: false"
+        rotation="0 -130 0"
+        position="0 0 0">
+      </a-entity>
+      <a-assets>
+        <a-asset-item id="flowers" src="i see yellow flowers on the green grass.glb"></a-asset-item>
+        <a-asset-item id="landscape" src="landscape.glb"></a-asset-item>
+      </a-assets>
+      
+      <a-entity gltf-model="#flowers" class="clickable" position="0 0 0" click-listener hide-ground character-interaction="character: npc9; message: Oh my God! Who set the house on fire; character2: npc3; message2: Guys! Fire! Fire! Get away from it!; character3: npc5; message3: Someboday, call the firefighter; character4: npc6; message4: No one come any further, it's dangerous; character5: npc4; message5: Man, I hope her house and family be alright"></a-entity>
+
+      <a-entity id="camera-rig" position="0 0.552 -4.2" rotation="-1.9 174.1 -0.9" vr-movement>
+        <a-entity camera="fov: 50" look-controls cursor="rayOrigin: mouse" raycaster="objects: .clickable">
+          <a-text id="message" value="Clicked!" position="0 0 -1" align="center" visible="false" width="4" negate="true"></a-text>
+        </a-entity>
+        <a-entity laser-controls="hand: left"></a-entity>
+        <a-entity laser-controls="hand: right"></a-entity>
+      </a-entity>
+      
+    </a-scene>
+  </body>
+</html>
